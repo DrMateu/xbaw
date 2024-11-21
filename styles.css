@@ -1,0 +1,240 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #1b1f38; 
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  color: #f0f0f0; 
+  background-image: url('background.jpg'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden; 
+  position: relative;
+}
+
+.window {
+  width: 600px;
+  border: 2px solid #3a3f58;
+  background-color: #252a48;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  position: absolute;
+  top: 50px;
+  left: 50px;
+}
+
+.title-bar {
+  background-color: #3f51b5;
+  color: #fff;
+  padding: 5px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 30px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  cursor: grab;
+}
+
+.title-bar:active {
+  cursor: grabbing;
+}
+
+.title {
+  margin-left: 10px;
+}
+
+.close-button {
+  background-color: #ff5f57;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  width: 30px;
+  height: 20px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  background-color: #e5544d;
+}
+
+.content {
+  padding: 20px;
+}
+
+.image-container img {
+  width: 150px;
+  height: 150px;
+  border-radius: 5px;
+  object-fit: cover;
+  border: 2px solid #3a3f58;
+}
+
+.details p {
+  margin: 5px 0;
+  color: #d1d4e0;
+}
+
+.switch-button {
+  background-color: #3f51b5;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.switch-button:hover {
+  background-color: #2c3e9e;
+}
+
+.app-icon {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  text-align: center;
+  cursor: pointer;
+  width: 80px;
+}
+
+.app-icon img {
+  width: 70px;
+  height: 70px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.app-icon img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+.app-icon p {
+  margin: 5px 0 0 0;
+  color: #d1d4e0;
+  font-size: 14px;
+}
+.music-controls {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+}
+
+.music-controls button {
+  background-color: #3f51b5;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.music-controls button:hover {
+  background-color: #2c3e9e;
+}
+.app-icon.flappy-bird {
+  top: 200px; 
+  left: 50px;
+}
+
+.app-icon img {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 5px;
+}
+/* Silly Cats */
+.silly-cat {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+}
+
+.silly-cat img {
+  width: 100%;
+  height: 100%;
+}
+
+.cat1 {
+  top: 50px;
+  left: 50px;
+}
+
+.cat2 {
+  top: 150px;
+  right: 100px;
+}
+
+.cat3 {
+  bottom: 100px;
+  left: 200px;
+}
+
+.cat4 {
+  top: 300px;
+  right: 200px;
+}
+
+.cat5 {
+  bottom: 50px;
+  right: 50px;
+}
+/* Instagram App Icon */
+.app-icon {
+  position: absolute;
+  top: 600px; /* Adjust as needed */
+  left: 10px; /* Adjust as needed */
+  width: 120px;
+  height: 120px;
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.1); /* Optional background for visibility */
+  border-radius: 10px; /* Rounded edges for better design */
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth pop-out effect */
+}
+
+.app-icon img {
+  width: 64px;
+  height: 64px;
+  pointer-events: none; /* Prevent clicks from missing by ensuring the parent is clicked */
+}
+
+.app-icon p {
+  margin-top: 5px;
+  font-size: 12px;
+  color: white;
+  font-family: Arial, sans-serif;
+  pointer-events: none;
+}
+
+/* Hover effect for Instagram App Icon */
+.app-icon:hover {
+  transform: scale(1.1); /* Slightly enlarges the app icon */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Adds a shadow for depth */
+}
+/* Scared Mouse */
+.scared-mouse {
+  position: absolute;
+  top: 200px; /* Initial position */
+  left: 200px; /* Initial position */
+  width: 50px;
+  height: 50px;
+  transition: transform 0.2s ease; /* Smooth fleeing effect */
+}
+
+.scared-mouse img {
+  width: 100%;
+  height: auto;
+  pointer-events: none; /* Prevent interaction with the mouse icon */
+}

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Xbaw's Page</title>
+  <link rel="icon" href="favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Background Music -->
+  <audio id="background-music" loop autoplay>
+    <source src="background-music.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <div class="music-controls">
+    <button onclick="toggleMusic()">Pause Music</button>
+  </div>
+
+  <!-- Draggable Window -->
+  <div class="window" id="draggable-window">
+    <div class="title-bar" id="drag-handle">
+      <span class="title" id="window-title">Productivity</span>
+      <button class="close-button" onclick="goToGoogle()">X</button>
+    </div>
+    <div class="content" id="window-content">
+      <div class="about-section">
+        <h1>About Me</h1>
+        <div class="info-container">
+          <div class="image-container">
+            <img src="profile-pic.png" alt="Profile Picture">
+          </div>
+          <div class="details">
+            <p><strong>Name:</strong> Mateu or Xbaw</p>
+            <p><strong>Birthday:</strong> 1 February</p>
+            <p><strong>Hobbies:</strong> Playing Minecraft, chatting with people, riding my bike</p>
+            <p><strong>Country:</strong> Romania</p>
+            <p><strong>Gender:</strong> Male (Hard to tell XD)</p>
+            <p><strong>Pronouns:</strong> Him</p>
+          </div>
+        </div>
+      </div>
+      <button class="switch-button" onclick="switchToCarTab()">Go to Car Tab</button>
+    </div>
+  </div>
+
+  <!-- Instagram "App Icon" -->
+  <div class="app-icon" id="instagram-icon" onclick="goToInstagram()">
+    <img src="instagram-icon.png" alt="Instagram Icon">
+    <p>Instagram</p>
+  </div>
+
+  <!-- Silly Cats -->
+  <div class="silly-cat cat1"><img src="silly-cat1.png" alt="Silly Cat 1"></div>
+  <div class="silly-cat cat2"><img src="silly-cat2.png" alt="Silly Cat 2"></div>
+  <div class="silly-cat cat3"><img src="silly-cat3.png" alt="Silly Cat 3"></div>
+  <div class="silly-cat cat4"><img src="silly-cat4.png" alt="Silly Cat 4"></div>
+  <div class="silly-cat cat5"><img src="silly-cat5.png" alt="Silly Cat 5"></div>
+
+  <!-- Scared Mouse -->
+  <div class="scared-mouse" id="mouse">
+    <img src="mouse-icon.png" alt="Mouse">
+  </div>
+
+  <script>
+    // Background Music Controls
+    const backgroundMusic = document.getElementById("background-music");
+    let isPlaying = true;
+
+    function toggleMusic() {
+      if (isPlaying) {
+        backgroundMusic.pause();
+        isPlaying = false;
+        document.querySelector(".music-controls button").textContent = "Play Music";
+      } else {
+        backgroundMusic.play();
+        isPlaying = true;
+        document.querySelector(".music-controls button").textContent = "Pause Music";
+      }
+    }
+
+    // Redirect Functions
+    function goToGoogle() {
+      window.location.href = "https://www.google.com";
+    }
+
+    function goToInstagram() {
+      window.location.href = "https://www.instagram.com/xbawfr/";
+    }
+
+    // Draggable Window
+    const draggableWindow = document.getElementById("draggable-window");
+    const dragHandle = document.getElementById("drag-handle");
+    let isDragging = false;
+    let offsetX = 0;
+    let offsetY = 0;
+
+    dragHandle.addEventListener("mousedown", (e) => {
+      isDragging = true;
+      offsetX = e.clientX - draggableWindow.offsetLeft;
+      offsetY = e.clientY - draggableWindow.offsetTop;
+    });
+
+    document.addEventListener("mousemove", (e) => {
+      if (isDragging) {
+        draggableWindow.style.left = `${e.clientX - offsetX}px`;
+        draggableWindow.style.top = `${e.clientY - offsetY}px`;
+      }
+    });
+
+    document.addEventListener("mouseup", () => {
+      isDragging = false;
+    });
+
+    // Switch Tabs
+    function switchToCarTab() {
+      const randomCat = [
+        "cat1.png",
+        "cat2.png",
+        "cat3.png"
+      ][Math.floor(Math.random() * 3)]; // Randomize cat image
+      document.getElementById("window-title").textContent = "Car";
+      document.getElementById("window-content").innerHTML = `
+        <div class="car-section">
+          <h1>My Cat</h1>
+          <div class="info-container">
+            <div class="image-container">
+              <img src="${randomCat}" alt="Cat Picture">
+            </div>
+            <div class="details">
+              <p><strong>Name:</strong> Mia</p>
+              <p><strong>Age:</strong> 2</p>
+              <p><strong>Hobbies:</strong> Sleeping on my desk while I do my homework</p>
+              <p><em>btw she is cute :3</em></p>
+            </div>
+          </div>
+          <button class="switch-button" onclick="switchToProductivityTab()">Go to Productivity Tab</button>
+        </div>
+      `;
+    }
+
+    function switchToProductivityTab() {
+      document.getElementById("window-title").textContent = "Productivity";
+      document.getElementById("window-content").innerHTML = `
+        <div class="about-section">
+          <h1>About Me</h1>
+          <div class="info-container">
+            <div class="image-container">
+              <img src="profile-pic.png" alt="Profile Picture">
+            </div>
+            <div class="details">
+              <p><strong>Name:</strong> Mateu or Xbaw</p>
+              <p><strong>Birthday:</strong> 1 February</p>
+              <p><strong>Hobbies:</strong> Playing Minecraft, chatting with people, riding my bike</p>
+              <p><strong>Country:</strong> Romania</p>
+              <p><strong>Gender:</strong> Male (Hard to tell XD)</p>
+              <p><strong>Pronouns:</strong> Him</p>
+            </div>
+          </div>
+        </div>
+        <button class="switch-button" onclick="switchToCarTab()">Go to Car Tab</button>
+      `;
+    }
+
+    // Scared Mouse
+    const mouseElement = document.getElementById("mouse");
+
+    document.addEventListener("mousemove", (e) => {
+      const mouseX = e.clientX;
+      const mouseY = e.clientY;
+
+      const rect = mouseElement.getBoundingClientRect();
+      const mouseCenterX = rect.left + rect.width / 2;
+      const mouseCenterY = rect.top + rect.height / 2;
+
+      const distance = Math.hypot(mouseX - mouseCenterX, mouseY - mouseCenterY);
+
+      if (distance < 150) { // Distance threshold
+        const angle = Math.atan2(mouseCenterY - mouseY, mouseCenterX - mouseX);
+        const fleeDistance = 100; // How far the mouse should move
+        const newX = mouseElement.offsetLeft + Math.cos(angle) * fleeDistance;
+        const newY = mouseElement.offsetTop + Math.sin(angle) * fleeDistance;
+
+        // Constrain the mouse within the window bounds
+        const windowWidth = window.innerWidth;
+        const windowHeight = window.innerHeight;
+        const mouseWidth = rect.width;
+        const mouseHeight = rect.height;
+
+        const constrainedX = Math.min(
+          Math.max(newX, 0),
+          windowWidth - mouseWidth
+        );
+        const constrainedY = Math.min(
+          Math.max(newY, 0),
+          windowHeight - mouseHeight
+        );
+
+        // Move the mouse
+        mouseElement.style.left = `${constrainedX}px`;
+        mouseElement.style.top = `${constrainedY}px`;
+      }
+    });
+  </script>
+</body>
+</html>
